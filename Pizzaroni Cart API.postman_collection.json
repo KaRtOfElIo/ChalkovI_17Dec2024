@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "4c9c5f58-e638-40b9-8822-512c3c61fb36",
+		"name": "Pizzaroni Cart API",
+		"description": "Коллекция для тестирования API корзины на сайте Pizzaroni",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35310865"
+	},
+	"item": [
+		{
+			"name": "Добавить товар в корзину",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"product_id\": \"{{productId}}\",\n    \"quantity\": \"{{quantity}}\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/cart/add",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"cart",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Изменить количество товара",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"product_id\": \"{{productId}}\",\n    \"quantity\": \"{{newQuantity}}\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/cart/update",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"cart",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удалить товар из корзины",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/cart/remove?product_id={{productId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"cart",
+						"remove"
+					],
+					"query": [
+						{
+							"key": "product_id",
+							"value": "{{productId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://pizzaroni.ru/api"
+		},
+		{
+			"key": "productId",
+			"value": "1"
+		},
+		{
+			"key": "quantity",
+			"value": "1"
+		},
+		{
+			"key": "newQuantity",
+			"value": "2"
+		}
+	]
+}
